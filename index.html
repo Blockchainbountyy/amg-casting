@@ -25,14 +25,14 @@
 
   <div class="max-w-2xl w-full bg-[#171717] rounded-2xl shadow-2xl overflow-hidden border border-gray-800">
     
-    <!-- Header: Now fully responsive for Mobile (stacked) and Desktop (side-by-side) -->
+    <!-- Header: Fully responsive for Mobile (stacked) and Desktop (side-by-side) -->
     <div class="bg-gradient-to-r from-purple-900 to-indigo-900 p-6 md:p-8 relative flex flex-col items-center justify-center text-center">
       <!-- Logo: Stacked on mobile, absolute left on desktop -->
       <div class="md:absolute md:left-6 mb-4 md:mb-0 w-20 h-20 md:w-16 md:h-16 shrink-0 bg-black rounded-full border-2 border-gray-400 overflow-hidden flex items-center justify-center shadow-lg">
         <img src="https://i.postimg.cc/RJ3QWPj1/Amazing-Grace-Media-Editors-20261110-032159.jpg" alt="Logo" class="w-full h-full object-cover">
       </div>
       
-      <!-- Titles: Text shrinks slightly on mobile to fit nicely -->
+      <!-- Titles -->
       <div class="w-full md:px-20">
         <h1 class="text-2xl md:text-3xl text-white font-extrabold tracking-tight">AMAZING GRACE MEDIA</h1>
         <p class="text-xs md:text-sm text-white mt-1 opacity-90 font-medium">Thespians form for AMG Short film 📽️</p>
@@ -45,7 +45,7 @@
 
       <form id="casting-form" action="https://formspree.io/f/mjyynobz" method="POST">
         
-        <!-- Step 1: Contact -->
+        <!-- Step 1: Contact & Demographics -->
         <div class="step active" id="step-1">
           <h2 class="text-xl font-semibold mb-4 text-purple-400 border-b border-gray-700 pb-2">1. Personal Information</h2>
           <div class="space-y-4">
@@ -54,6 +54,18 @@
             <div><label class="block text-sm mb-1">Email Address</label><input type="email" name="Email" required class="w-full p-3 bg-black border border-gray-700 rounded-lg focus:border-purple-500 outline-none"></div>
             <div><label class="block text-sm mb-1">Phone / WhatsApp</label><input type="tel" name="Phone" required class="w-full p-3 bg-black border border-gray-700 rounded-lg focus:border-purple-500 outline-none"></div>
             <div><label class="block text-sm mb-1">Location & State of Origin</label><input type="text" name="Location" required class="w-full p-3 bg-black border border-gray-700 rounded-lg focus:border-purple-500 outline-none"></div>
+            
+            <!-- New Relationship Status Field -->
+            <div>
+              <label class="block text-sm mb-1">Relationship Status</label>
+              <select name="Relationship Status" required class="w-full p-3 bg-black border border-gray-700 rounded-lg outline-none text-gray-400 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 cursor-pointer">
+                <option value="" disabled selected>Select status...</option>
+                <option value="Single">Single</option>
+                <option value="Engaged">Engaged</option>
+                <option value="Married">Married</option>
+                <option value="Divorced">Divorced</option>
+              </select>
+            </div>
           </div>
           <div class="mt-6 flex justify-end">
             <button type="button" onclick="nextStep(2)" class="btn-animate bg-purple-600 text-white px-6 py-2 rounded-lg font-semibold flex items-center">Next →</button>
@@ -68,7 +80,7 @@
               <div><label class="block text-sm mb-1">Gender</label><select name="Gender" class="w-full p-3 bg-black border border-gray-700 rounded-lg outline-none"><option>Male</option><option>Female</option></select></div>
               <div>
                 <label class="block text-sm mb-1">Date of Birth</label>
-                <!-- Max date restricts input to applicants 16 years or older (based on Nov 10, 2026) -->
+                <!-- Max date restricts input to applicants 16 years or older -->
                 <input type="date" name="Date of Birth" max="2010-11-10" required class="w-full p-3 bg-black border border-gray-700 rounded-lg outline-none text-gray-400">
               </div>
             </div>
