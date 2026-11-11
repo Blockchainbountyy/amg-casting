@@ -11,54 +11,41 @@
     .step { display: none; animation: fadeIn 0.4s ease-in-out; }
     .step.active { display: block; }
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    
-    /* Upgraded Heavy, Tactile Button Animations */
     .btn-animate { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
     .btn-animate:hover { transform: translateY(-4px) scale(1.02); box-shadow: 0 15px 25px -5px rgba(147, 51, 234, 0.4); }
     .btn-animate:active { transform: translateY(4px) scale(0.92); box-shadow: 0 5px 10px -3px rgba(147, 51, 234, 0.2); }
-    
-    /* Fix for dark mode calendar picker icon */
     ::-webkit-calendar-picker-indicator { filter: invert(1); cursor: pointer; }
   </style>
 </head>
 <body class="min-h-screen p-4 md:p-8 flex justify-center items-center">
 
   <div class="max-w-2xl w-full bg-[#171717] rounded-2xl shadow-2xl overflow-hidden border border-gray-800">
-    
-    <!-- Header: Fully responsive for Mobile (stacked) and Desktop (side-by-side) -->
     <div class="bg-gradient-to-r from-purple-900 to-indigo-900 p-6 md:p-8 relative flex flex-col items-center justify-center text-center">
-      <!-- Logo: Stacked on mobile, absolute left on desktop -->
       <div class="md:absolute md:left-6 mb-4 md:mb-0 w-20 h-20 md:w-16 md:h-16 shrink-0 bg-black rounded-full border-2 border-gray-400 overflow-hidden flex items-center justify-center shadow-lg">
         <img src="https://i.postimg.cc/RJ3QWPj1/Amazing-Grace-Media-Editors-20261110-032159.jpg" alt="Logo" class="w-full h-full object-cover">
       </div>
-      
-      <!-- Titles -->
       <div class="w-full md:px-20">
         <h1 class="text-2xl md:text-3xl text-white font-extrabold tracking-tight">AMAZING GRACE MEDIA</h1>
         <p class="text-xs md:text-sm text-white mt-1 opacity-90 font-medium">Thespians form for AMG Short film 📽️</p>
       </div>
     </div>
 
-    <!-- Form Container -->
     <div class="p-6 md:p-8">
       <p class="text-gray-400 text-sm text-center mb-6">Step into the story. Please fill out your details below. Don't worry about being too formal, just be yourself!</p>
 
-      <form id="casting-form" action="https://formspree.io/f/mjyynobz" method="POST">
+      <form id="casting-form" enctype="multipart/form-data">
         
-        <!-- Step 1: Contact & Demographics -->
         <div class="step active" id="step-1">
           <h2 class="text-xl font-semibold mb-4 text-purple-400 border-b border-gray-700 pb-2">1. Personal Information</h2>
           <div class="space-y-4">
-            <div><label class="block text-sm mb-1">Full Name</label><input type="text" name="Full Name" required class="w-full p-3 bg-black border border-gray-700 rounded-lg focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none"></div>
-            <div><label class="block text-sm mb-1">Stage Name (Optional)</label><input type="text" name="Stage Name" class="w-full p-3 bg-black border border-gray-700 rounded-lg focus:border-purple-500 outline-none"></div>
+            <div><label class="block text-sm mb-1">Full Name</label><input type="text" name="Full_Name" required class="w-full p-3 bg-black border border-gray-700 rounded-lg focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none"></div>
+            <div><label class="block text-sm mb-1">Stage Name (Optional)</label><input type="text" name="Stage_Name" class="w-full p-3 bg-black border border-gray-700 rounded-lg focus:border-purple-500 outline-none"></div>
             <div><label class="block text-sm mb-1">Email Address</label><input type="email" name="Email" required class="w-full p-3 bg-black border border-gray-700 rounded-lg focus:border-purple-500 outline-none"></div>
             <div><label class="block text-sm mb-1">Phone / WhatsApp</label><input type="tel" name="Phone" required class="w-full p-3 bg-black border border-gray-700 rounded-lg focus:border-purple-500 outline-none"></div>
             <div><label class="block text-sm mb-1">Location & State of Origin</label><input type="text" name="Location" required class="w-full p-3 bg-black border border-gray-700 rounded-lg focus:border-purple-500 outline-none"></div>
-            
-            <!-- New Relationship Status Field -->
             <div>
               <label class="block text-sm mb-1">Relationship Status</label>
-              <select name="Relationship Status" required class="w-full p-3 bg-black border border-gray-700 rounded-lg outline-none text-gray-400 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 cursor-pointer">
+              <select name="Relationship_Status" required class="w-full p-3 bg-black border border-gray-700 rounded-lg outline-none text-gray-400 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 cursor-pointer">
                 <option value="" disabled selected>Select status...</option>
                 <option value="Single">Single</option>
                 <option value="Engaged">Engaged</option>
@@ -72,23 +59,18 @@
           </div>
         </div>
 
-        <!-- Step 2: Physical Attributes -->
         <div class="step" id="step-2">
           <h2 class="text-xl font-semibold mb-4 text-purple-400 border-b border-gray-700 pb-2">2. Physical Attributes</h2>
           <div class="space-y-4">
             <div class="grid grid-cols-2 gap-4">
               <div><label class="block text-sm mb-1">Gender</label><select name="Gender" class="w-full p-3 bg-black border border-gray-700 rounded-lg outline-none"><option>Male</option><option>Female</option></select></div>
-              <div>
-                <label class="block text-sm mb-1">Date of Birth</label>
-                <!-- Max date restricts input to applicants 16 years or older -->
-                <input type="date" name="Date of Birth" max="2010-11-10" required class="w-full p-3 bg-black border border-gray-700 rounded-lg outline-none text-gray-400">
-              </div>
+              <div><label class="block text-sm mb-1">Date of Birth</label><input type="date" name="Date_of_Birth" max="2010-11-10" required class="w-full p-3 bg-black border border-gray-700 rounded-lg outline-none text-gray-400"></div>
             </div>
             <div class="grid grid-cols-2 gap-4">
               <div><label class="block text-sm mb-1">Height</label><input type="text" name="Height" placeholder="e.g. 5'9" class="w-full p-3 bg-black border border-gray-700 rounded-lg outline-none"></div>
               <div><label class="block text-sm mb-1">Body Build</label><input type="text" name="Build" placeholder="e.g. Athletic" class="w-full p-3 bg-black border border-gray-700 rounded-lg outline-none"></div>
             </div>
-            <div><label class="block text-sm mb-1">Distinctive Features (Tattoos, scars, etc.)</label><textarea name="Features" class="w-full p-3 bg-black border border-gray-700 rounded-lg outline-none"></textarea></div>
+            <div><label class="block text-sm mb-1">Distinctive Features</label><textarea name="Features" placeholder="Tattoos, scars, etc." class="w-full p-3 bg-black border border-gray-700 rounded-lg outline-none"></textarea></div>
           </div>
           <div class="mt-6 flex justify-between">
             <button type="button" onclick="prevStep(1)" class="btn-animate bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold">← Back</button>
@@ -96,13 +78,12 @@
           </div>
         </div>
 
-        <!-- Step 3: Experience -->
         <div class="step" id="step-3">
           <h2 class="text-xl font-semibold mb-4 text-purple-400 border-b border-gray-700 pb-2">3. Experience</h2>
           <div class="space-y-4">
             <div><label class="block text-sm mb-1">Years of Acting Experience</label><select name="Experience" class="w-full p-3 bg-black border border-gray-700 rounded-lg outline-none"><option>Beginner</option><option>1-3 Years</option><option>4-7 Years</option><option>8+ Years</option></select></div>
             <div><label class="block text-sm mb-1">Notable Past Credits</label><textarea name="Credits" rows="2" class="w-full p-3 bg-black border border-gray-700 rounded-lg outline-none"></textarea></div>
-            <div><label class="block text-sm mb-1">Special Skills (Stunts, Dialects, Combat, etc.)</label><textarea name="Skills" rows="2" class="w-full p-3 bg-black border border-gray-700 rounded-lg outline-none"></textarea></div>
+            <div><label class="block text-sm mb-1">Special Skills</label><textarea name="Skills" placeholder="Stunts, Dialects, Combat, etc." rows="2" class="w-full p-3 bg-black border border-gray-700 rounded-lg outline-none"></textarea></div>
           </div>
           <div class="mt-6 flex justify-between">
             <button type="button" onclick="prevStep(2)" class="btn-animate bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold">← Back</button>
@@ -110,33 +91,20 @@
           </div>
         </div>
 
-        <!-- Step 4: Media & Availability & Submit -->
         <div class="step" id="step-4">
           <h2 class="text-xl font-semibold mb-4 text-purple-400 border-b border-gray-700 pb-2">4. Media & Availability</h2>
           <div class="space-y-4">
-            
-            <!-- Picture Links -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
-              <div>
-                <label class="block text-sm mb-1">Link to Headshot / Selfie (Required)</label>
-                <input type="url" name="Headshot_Link" placeholder="Google Drive, Facebook, etc." required class="w-full p-3 bg-black border border-gray-700 rounded-lg outline-none focus:border-purple-500">
-              </div>
-              <div>
-                <label class="block text-sm mb-1">Link to Full Body Picture (Required)</label>
-                <input type="url" name="Full_Body_Link" placeholder="Google Drive, Facebook, etc." required class="w-full p-3 bg-black border border-gray-700 rounded-lg outline-none focus:border-purple-500">
-              </div>
+              <div><label class="block text-sm mb-1">Upload Headshot / Selfie</label><input type="file" name="Headshot_Picture" accept="image/*" required class="w-full p-2 bg-black border border-gray-700 rounded-lg outline-none text-gray-400 text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-900 file:text-white hover:file:bg-purple-800 cursor-pointer"></div>
+              <div><label class="block text-sm mb-1">Upload Full Body Picture</label><input type="file" name="Full_Body_Picture" accept="image/*" required class="w-full p-2 bg-black border border-gray-700 rounded-lg outline-none text-gray-400 text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-900 file:text-white hover:file:bg-purple-800 cursor-pointer"></div>
             </div>
-
-            <label class="flex items-start space-x-3 p-3 bg-black border border-gray-700 rounded-lg cursor-pointer">
-              <input type="checkbox" name="Callback_Availability" value="Yes" required class="mt-1 w-4 h-4 text-purple-600">
-              <span class="text-sm">I am available for call backs and overnight rehearsals.</span>
-            </label>
-            <label class="flex items-start space-x-3 p-3 bg-black border border-gray-700 rounded-lg cursor-pointer">
-              <input type="checkbox" name="Consent" value="Yes" required class="mt-1 w-4 h-4 text-purple-600">
-              <span class="text-sm text-gray-400">By checking this, I confirm my details are accurate and grant Amazing Grace Media permission to use my application for casting.</span>
-            </label>
+            <label class="flex items-start space-x-3 p-3 bg-black border border-gray-700 rounded-lg cursor-pointer"><input type="checkbox" name="Callback_Availability" value="Yes" required class="mt-1 w-4 h-4 text-purple-600"><span class="text-sm">I am available for call backs and overnight rehearsals.</span></label>
+            <label class="flex items-start space-x-3 p-3 bg-black border border-gray-700 rounded-lg cursor-pointer"><input type="checkbox" name="Consent" value="Yes" required class="mt-1 w-4 h-4 text-purple-600"><span class="text-sm text-gray-400">By checking this, I confirm my details are accurate and grant Amazing Grace Media permission to use my application for casting.</span></label>
           </div>
-          <div class="mt-8 flex justify-between">
+          
+          <p id="loading-msg" class="hidden text-center text-purple-400 font-bold mt-4 animate-pulse">Uploading pictures and submitting...</p>
+
+          <div class="mt-6 flex justify-between" id="button-container">
             <button type="button" onclick="prevStep(3)" class="btn-animate bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold">← Back</button>
             <button type="submit" class="btn-animate bg-green-600 hover:bg-green-500 text-white px-8 py-2 rounded-lg font-bold shadow-lg shadow-green-900/50">Submit Audition</button>
           </div>
@@ -156,16 +124,33 @@
       document.getElementById('step-' + step).classList.add('active');
     }
     
-    // Smooth Formspree Submission
     var form = document.getElementById("casting-form");
     form.addEventListener("submit", function(ev) {
       ev.preventDefault();
+      document.getElementById("button-container").classList.add("hidden");
+      document.getElementById("loading-msg").classList.remove("hidden");
+      
       var data = new FormData(form);
-      fetch(form.action, { method: form.method, body: data, headers: { 'Accept': 'application/json' } })
-      .then(response => {
-        if (response.ok) {
-          form.innerHTML = "<div class='text-center py-10'><h3 class='text-2xl text-green-400 font-bold mb-2'>Submitted! 🎉</h3><p class='text-gray-400'>Amazing Grace Media has received your application. We will be in touch.</p></div>";
+      
+      fetch("https://formsubmit.co/ajax/imisioluwajoseph@gmail.com", { 
+        method: "POST", 
+        body: data, 
+        headers: { 'Accept': 'application/json' } 
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          form.innerHTML = "<div class='text-center py-10'><h3 class='text-2xl text-green-400 font-bold mb-2'>Submitted! 🎉</h3><p class='text-gray-400'>Amazing Grace Media has received your application and pictures. We will be in touch.</p></div>";
+        } else {
+          alert("Something went wrong. Please try again.");
+          document.getElementById("button-container").classList.remove("hidden");
+          document.getElementById("loading-msg").classList.add("hidden");
         }
+      })
+      .catch(error => {
+          alert("Network error. Please try again.");
+          document.getElementById("button-container").classList.remove("hidden");
+          document.getElementById("loading-msg").classList.add("hidden");
       });
     });
   </script>
