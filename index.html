@@ -33,8 +33,13 @@
     <div class="p-6 md:p-8">
       <p class="text-gray-400 text-sm text-center mb-6">Step into the story. Please fill out your details below. Don't worry about being too formal, just be yourself!</p>
 
-      <form id="casting-form" enctype="multipart/form-data">
+      <!-- Standard Form Submission configured to accept images and bypass captchas -->
+      <form action="https://formsubmit.co/imisioluwajoseph@gmail.com" method="POST" enctype="multipart/form-data">
         
+        <!-- FormSubmit Hidden Rules -->
+        <input type="hidden" name="_subject" value="New Audition: Amazing Grace Media">
+        <input type="hidden" name="_captcha" value="false">
+
         <div class="step active" id="step-1">
           <h2 class="text-xl font-semibold mb-4 text-purple-400 border-b border-gray-700 pb-2">1. Personal Information</h2>
           <div class="space-y-4">
@@ -102,9 +107,7 @@
             <label class="flex items-start space-x-3 p-3 bg-black border border-gray-700 rounded-lg cursor-pointer"><input type="checkbox" name="Consent" value="Yes" required class="mt-1 w-4 h-4 text-purple-600"><span class="text-sm text-gray-400">By checking this, I confirm my details are accurate and grant Amazing Grace Media permission to use my application for casting.</span></label>
           </div>
           
-          <p id="loading-msg" class="hidden text-center text-purple-400 font-bold mt-4 animate-pulse">Uploading pictures and submitting...</p>
-
-          <div class="mt-6 flex justify-between" id="button-container">
+          <div class="mt-6 flex justify-between">
             <button type="button" onclick="prevStep(3)" class="btn-animate bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold">← Back</button>
             <button type="submit" class="btn-animate bg-green-600 hover:bg-green-500 text-white px-8 py-2 rounded-lg font-bold shadow-lg shadow-green-900/50">Submit Audition</button>
           </div>
@@ -123,36 +126,6 @@
       document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
       document.getElementById('step-' + step).classList.add('active');
     }
-    
-    var form = document.getElementById("casting-form");
-    form.addEventListener("submit", function(ev) {
-      ev.preventDefault();
-      document.getElementById("button-container").classList.add("hidden");
-      document.getElementById("loading-msg").classList.remove("hidden");
-      
-      var data = new FormData(form);
-      
-      fetch("https://formsubmit.co/ajax/imisioluwajoseph@gmail.com", { 
-        method: "POST", 
-        body: data, 
-        headers: { 'Accept': 'application/json' } 
-      })
-      .then(response => response.json())
-      .then(data => {
-        if (data.success) {
-          form.innerHTML = "<div class='text-center py-10'><h3 class='text-2xl text-green-400 font-bold mb-2'>Submitted! 🎉</h3><p class='text-gray-400'>Amazing Grace Media has received your application and pictures. We will be in touch.</p></div>";
-        } else {
-          alert("Something went wrong. Please try again.");
-          document.getElementById("button-container").classList.remove("hidden");
-          document.getElementById("loading-msg").classList.add("hidden");
-        }
-      })
-      .catch(error => {
-          alert("Network error. Please try again.");
-          document.getElementById("button-container").classList.remove("hidden");
-          document.getElementById("loading-msg").classList.add("hidden");
-      });
-    });
   </script>
 </body>
 </html>
