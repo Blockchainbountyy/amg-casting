@@ -20,6 +20,7 @@
 <body class="min-h-screen p-4 md:p-8 flex justify-center items-center">
 
   <div class="max-w-2xl w-full bg-[#171717] rounded-2xl shadow-2xl overflow-hidden border border-gray-800">
+    <!-- Header -->
     <div class="bg-gradient-to-r from-purple-900 to-indigo-900 p-6 md:p-8 relative flex flex-col items-center justify-center text-center">
       <div class="md:absolute md:left-6 mb-4 md:mb-0 w-20 h-20 md:w-16 md:h-16 shrink-0 bg-black rounded-full border-2 border-gray-400 overflow-hidden flex items-center justify-center shadow-lg">
         <img src="https://i.postimg.cc/RJ3QWPj1/Amazing-Grace-Media-Editors-20261110-032159.jpg" alt="Logo" class="w-full h-full object-cover">
@@ -30,27 +31,27 @@
       </div>
     </div>
 
+    <!-- Form Container -->
     <div class="p-6 md:p-8">
       <p class="text-gray-400 text-sm text-center mb-6">Step into the story. Please fill out your details below. Don't worry about being too formal, just be yourself!</p>
 
-      <!-- Standard Form Submission configured to accept images and bypass captchas -->
-      <form action="https://formsubmit.co/imisioluwajoseph@gmail.com" method="POST" enctype="multipart/form-data">
-        
-        <!-- FormSubmit Hidden Rules -->
-        <input type="hidden" name="_subject" value="New Audition: Amazing Grace Media">
-        <input type="hidden" name="_captcha" value="false">
+      <form id="casting-form">
+        <!-- WEB3FORMS ACCESS KEY INJECTED BELOW -->
+        <input type="hidden" name="access_key" value="8d774b2c-85f3-4101-8d6b-bf1025f01aef">
+        <input type="hidden" name="subject" value="New Audition: Amazing Grace Media">
 
+        <!-- Step 1 -->
         <div class="step active" id="step-1">
           <h2 class="text-xl font-semibold mb-4 text-purple-400 border-b border-gray-700 pb-2">1. Personal Information</h2>
           <div class="space-y-4">
-            <div><label class="block text-sm mb-1">Full Name</label><input type="text" name="Full_Name" required class="w-full p-3 bg-black border border-gray-700 rounded-lg focus:border-purple-500 focus:ring-1 focus:ring-purple-500 outline-none"></div>
+            <div><label class="block text-sm mb-1">Full Name</label><input type="text" name="Full_Name" required class="w-full p-3 bg-black border border-gray-700 rounded-lg focus:border-purple-500 outline-none"></div>
             <div><label class="block text-sm mb-1">Stage Name (Optional)</label><input type="text" name="Stage_Name" class="w-full p-3 bg-black border border-gray-700 rounded-lg focus:border-purple-500 outline-none"></div>
             <div><label class="block text-sm mb-1">Email Address</label><input type="email" name="Email" required class="w-full p-3 bg-black border border-gray-700 rounded-lg focus:border-purple-500 outline-none"></div>
             <div><label class="block text-sm mb-1">Phone / WhatsApp</label><input type="tel" name="Phone" required class="w-full p-3 bg-black border border-gray-700 rounded-lg focus:border-purple-500 outline-none"></div>
             <div><label class="block text-sm mb-1">Location & State of Origin</label><input type="text" name="Location" required class="w-full p-3 bg-black border border-gray-700 rounded-lg focus:border-purple-500 outline-none"></div>
             <div>
               <label class="block text-sm mb-1">Relationship Status</label>
-              <select name="Relationship_Status" required class="w-full p-3 bg-black border border-gray-700 rounded-lg outline-none text-gray-400 focus:border-purple-500 focus:ring-1 focus:ring-purple-500 cursor-pointer">
+              <select name="Relationship_Status" required class="w-full p-3 bg-black border border-gray-700 rounded-lg outline-none text-gray-400 focus:border-purple-500 cursor-pointer">
                 <option value="" disabled selected>Select status...</option>
                 <option value="Single">Single</option>
                 <option value="Engaged">Engaged</option>
@@ -64,6 +65,7 @@
           </div>
         </div>
 
+        <!-- Step 2 -->
         <div class="step" id="step-2">
           <h2 class="text-xl font-semibold mb-4 text-purple-400 border-b border-gray-700 pb-2">2. Physical Attributes</h2>
           <div class="space-y-4">
@@ -83,6 +85,7 @@
           </div>
         </div>
 
+        <!-- Step 3 -->
         <div class="step" id="step-3">
           <h2 class="text-xl font-semibold mb-4 text-purple-400 border-b border-gray-700 pb-2">3. Experience</h2>
           <div class="space-y-4">
@@ -96,23 +99,26 @@
           </div>
         </div>
 
+        <!-- Step 4 -->
         <div class="step" id="step-4">
           <h2 class="text-xl font-semibold mb-4 text-purple-400 border-b border-gray-700 pb-2">4. Media & Availability</h2>
           <div class="space-y-4">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-2">
-              <div><label class="block text-sm mb-1">Upload Headshot / Selfie</label><input type="file" name="Headshot_Picture" accept="image/*" required class="w-full p-2 bg-black border border-gray-700 rounded-lg outline-none text-gray-400 text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-900 file:text-white hover:file:bg-purple-800 cursor-pointer"></div>
-              <div><label class="block text-sm mb-1">Upload Full Body Picture</label><input type="file" name="Full_Body_Picture" accept="image/*" required class="w-full p-2 bg-black border border-gray-700 rounded-lg outline-none text-gray-400 text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-900 file:text-white hover:file:bg-purple-800 cursor-pointer"></div>
+              <div><label class="block text-sm mb-1">Upload Headshot / Selfie</label><input type="file" id="headshot-input" accept="image/*" required class="w-full p-2 bg-black border border-gray-700 rounded-lg outline-none text-gray-400 text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-900 file:text-white hover:file:bg-purple-800 cursor-pointer"></div>
+              <div><label class="block text-sm mb-1">Upload Full Body Picture</label><input type="file" id="fullbody-input" accept="image/*" required class="w-full p-2 bg-black border border-gray-700 rounded-lg outline-none text-gray-400 text-sm file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-900 file:text-white hover:file:bg-purple-800 cursor-pointer"></div>
             </div>
             <label class="flex items-start space-x-3 p-3 bg-black border border-gray-700 rounded-lg cursor-pointer"><input type="checkbox" name="Callback_Availability" value="Yes" required class="mt-1 w-4 h-4 text-purple-600"><span class="text-sm">I am available for call backs and overnight rehearsals.</span></label>
             <label class="flex items-start space-x-3 p-3 bg-black border border-gray-700 rounded-lg cursor-pointer"><input type="checkbox" name="Consent" value="Yes" required class="mt-1 w-4 h-4 text-purple-600"><span class="text-sm text-gray-400">By checking this, I confirm my details are accurate and grant Amazing Grace Media permission to use my application for casting.</span></label>
           </div>
           
-          <div class="mt-6 flex justify-between">
+          <!-- Hidden loading message -->
+          <p id="loading-msg" class="hidden text-center text-purple-400 font-bold mt-4 animate-pulse">Compressing pictures & submitting... Please wait.</p>
+
+          <div class="mt-6 flex justify-between" id="button-container">
             <button type="button" onclick="prevStep(3)" class="btn-animate bg-gray-700 text-white px-6 py-2 rounded-lg font-semibold">← Back</button>
             <button type="submit" class="btn-animate bg-green-600 hover:bg-green-500 text-white px-8 py-2 rounded-lg font-bold shadow-lg shadow-green-900/50">Submit Audition</button>
           </div>
         </div>
-
       </form>
     </div>
   </div>
@@ -126,6 +132,76 @@
       document.querySelectorAll('.step').forEach(el => el.classList.remove('active'));
       document.getElementById('step-' + step).classList.add('active');
     }
+
+    // Auto-Compressor script so high-resolution mobile photos don't fail the upload
+    async function compressImage(file) {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = (event) => {
+          const img = new Image();
+          img.src = event.target.result;
+          img.onload = () => {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const maxWidth = 800; // Shrinks resolution for easy email delivery
+            const scaleSize = maxWidth / img.width;
+            canvas.width = maxWidth;
+            canvas.height = img.height * scaleSize;
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            canvas.toBlob((blob) => {
+              resolve(new File([blob], file.name, { type: 'image/jpeg' }));
+            }, 'image/jpeg', 0.7); // 70% quality compression
+          };
+        };
+      });
+    }
+    
+    var form = document.getElementById("casting-form");
+    form.addEventListener("submit", async function(ev) {
+      ev.preventDefault();
+      
+      // Hide buttons and show Loading state
+      document.getElementById("button-container").classList.add("hidden");
+      document.getElementById("loading-msg").classList.remove("hidden");
+      
+      var data = new FormData(form);
+      
+      // Auto-compress the Headshot picture
+      let headshot = document.getElementById("headshot-input").files[0];
+      if (headshot) {
+        let compressedHeadshot = await compressImage(headshot);
+        data.append("Headshot_Picture", compressedHeadshot);
+      }
+      
+      // Auto-compress the Full Body picture
+      let fullbody = document.getElementById("fullbody-input").files[0];
+      if (fullbody) {
+        let compressedFullbody = await compressImage(fullbody);
+        data.append("Full_Body_Picture", compressedFullbody);
+      }
+      
+      // Securely submit to Web3Forms
+      fetch("https://api.web3forms.com/submit", { 
+        method: "POST", 
+        body: data
+      })
+      .then(async response => {
+        let json = await response.json();
+        if (response.status == 200) {
+          form.innerHTML = "<div class='text-center py-10'><h3 class='text-2xl text-green-400 font-bold mb-2'>Submitted! 🎉</h3><p class='text-gray-400'>Amazing Grace Media has received your application and pictures. We will be in touch.</p></div>";
+        } else {
+          alert("Submission failed. Error: " + json.message);
+          document.getElementById("button-container").classList.remove("hidden");
+          document.getElementById("loading-msg").classList.add("hidden");
+        }
+      })
+      .catch(error => {
+          alert("Network error. Please check your connection and try again.");
+          document.getElementById("button-container").classList.remove("hidden");
+          document.getElementById("loading-msg").classList.add("hidden");
+      });
+    });
   </script>
 </body>
 </html>
